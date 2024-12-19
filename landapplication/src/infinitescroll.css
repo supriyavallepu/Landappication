@@ -1,0 +1,22 @@
+.land-list {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .land-card {
+    margin-bottom: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+  }
+  
+  .carousel-container {
+    max-width: 100%;
+    margin-top: 20px;
+  }
+  
+  .loading-indicator {
+    text-align: center;
+    font-size: 18px;
+    padding: 20px;
+  }
+  
