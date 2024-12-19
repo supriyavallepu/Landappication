@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import ImageCarousel from "./ImageCarousel";
-import './infinitescroll.css'
+import './infinitescroll.css';
+import './Landlisting.css';
 
 // Fetch land data from API
 const fetchLandData = async (page) => {
@@ -63,15 +64,17 @@ console.log(lands, "lasdslists==========")
   }, [loading, hasMore]);
 
   return (
-    <div className="land-list">
-      {lands?.map((land) => (
-        <div key={land.results.division_info.id} className="land-card">
-          <ImageCarousel images={land.results.land_media.image} /> Image carousel 
-          <h3>{land.results.division_info.name}</h3>
-          <p>{land.results.division_info.division_type}</p>
-        </div>
-      ))}
-      
+    <div className='land-list'>
+      {lands.map((land, index) => (
+          <div key={index} className='land-card'>
+              <ImageCarousel images={land.images}/>
+            
+            <div>
+              <h3>{land.land_bookmark_data}</h3>
+              <p>{land.description}</p>
+            </div>
+          </div>
+        ))}
       {loading && <div className="loading-indicator">Loading...</div>}
       <div ref={loader}></div> {/* Invisible loader for IntersectionObserver */}
     </div>
